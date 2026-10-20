@@ -1,0 +1,206 @@
+@use '_colors' as *;
+
+:root {
+  --surface-primary: #{$neutral-50};
+  --surface-secondary: #{$neutral-100};
+  --surface-tertiary: #{$neutral-200};
+  --surface-accent: #{$primary-50};
+  --surface-hover: #{$neutral-100};
+  --surface-active: #{$neutral-200};
+  --surface-disabled: #{$neutral-100};
+  --surface-overlay: rgba(0, 0, 0, 0.5);
+
+  --text-primary: #{$neutral-900};
+  --text-secondary: #{$neutral-600};
+  --text-tertiary: #{$neutral-500};
+  --text-disabled: #{$neutral-400};
+  --text-inverse: #{$neutral-50};
+  --text-link: #{$primary-600};
+  --text-link-hover: #{$primary-700};
+
+  --border-primary: #{$neutral-200};
+  --border-secondary: #{$neutral-300};
+  --border-focus: #{$primary-500};
+  --border-error: #{$error-500};
+  --border-success: #{$success-500};
+
+  --button-primary-bg: #{$primary-600};
+  --button-primary-bg-hover: #{$primary-700};
+  --button-primary-bg-active: #{$primary-800};
+  --button-primary-text: #{$neutral-50};
+  --button-secondary-bg: #{$neutral-100};
+  --button-secondary-bg-hover: #{$neutral-200};
+  --button-secondary-bg-active: #{$neutral-300};
+  --button-secondary-text: #{$neutral-900};
+  --button-ghost-bg-hover: #{$neutral-100};
+  --button-ghost-text: #{$neutral-700};
+  --button-disabled-bg: #{$neutral-100};
+  --button-disabled-text: #{$neutral-400};
+
+  --input-bg: #{$neutral-50};
+  --input-bg-hover: #{$neutral-100};
+  --input-bg-focus: #{$neutral-50};
+  --input-text: #{$neutral-900};
+  --input-placeholder: #{$neutral-400};
+
+  --accent-primary: #{$primary-500};
+  --accent-primary-hover: #{$primary-600};
+  --accent-secondary: #{$secondary-500};
+  --accent-secondary-hover: #{$secondary-600};
+
+  --success: #{$success-500};
+  --success-bg: #{$success-50};
+  --success-text: #{$success-900};
+
+  --warning: #{$warning-500};
+  --warning-bg: #{$warning-50};
+  --warning-text: #{$warning-900};
+
+  --error: #{$error-500};
+  --error-bg: #{$error-50};
+  --error-text: #{$error-900};
+
+  --info: #{$info-500};
+  --info-bg: #{$info-50};
+  --info-text: #{$info-900};
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  &[data-theme='light'] {
+    --surface-primary: #{$neutral-50};
+    --surface-secondary: #{$neutral-100};
+    --surface-tertiary: #{$neutral-200};
+    --surface-accent: #{$primary-50};
+    --surface-hover: #{$neutral-100};
+    --surface-active: #{$neutral-200};
+    --surface-disabled: #{$neutral-100};
+    --surface-overlay: rgba(0, 0, 0, 0.5);
+
+    --text-primary: #{$neutral-900};
+    --text-secondary: #{$neutral-600};
+    --text-tertiary: #{$neutral-500};
+    --text-disabled: #{$neutral-400};
+    --text-inverse: #{$neutral-50};
+    --text-link: #{$primary-600};
+    --text-link-hover: #{$primary-700};
+
+    --border-primary: #{$neutral-200};
+    --border-secondary: #{$neutral-300};
+    --border-focus: #{$primary-500};
+    --border-error: #{$error-500};
+    --border-success: #{$success-500};
+
+    --button-primary-bg: #{$primary-600};
+    --button-primary-bg-hover: #{$primary-700};
+    --button-primary-bg-active: #{$primary-800};
+    --button-primary-text: #{$neutral-50};
+    --button-secondary-bg: #{$neutral-100};
+    --button-secondary-bg-hover: #{$neutral-200};
+    --button-secondary-bg-active: #{$neutral-300};
+    --button-secondary-text: #{$neutral-900};
+    --button-ghost-bg-hover: #{$neutral-100};
+    --button-ghost-text: #{$neutral-700};
+    --button-disabled-bg: #{$neutral-100};
+    --button-disabled-text: #{$neutral-400};
+
+    --input-bg: #{$neutral-50};
+    --input-bg-hover: #{$neutral-100};
+    --input-bg-focus: #{$neutral-50};
+    --input-text: #{$neutral-900};
+    --input-placeholder: #{$neutral-400};
+
+    --accent-primary: #{$primary-500};
+    --accent-primary-hover: #{$primary-600};
+    --accent-secondary: #{$secondary-500};
+    --accent-secondary-hover: #{$secondary-600};
+
+    --success: #{$success-500};
+    --success-bg: #{$success-50};
+    --success-text: #{$success-900};
+
+    --warning: #{$warning-500};
+    --warning-bg: #{$warning-50};
+    --warning-text: #{$warning-900};
+
+    --error: #{$error-500};
+    --error-bg: #{$error-50};
+    --error-text: #{$error-900};
+
+    --info: #{$info-500};
+    --info-bg: #{$info-50};
+    --info-text: #{$info-900};
+  }
+
+  &[data-theme='dark'] {
+    --surface-primary: #{$neutral-950};
+    --surface-secondary: #{$neutral-900};
+    --surface-tertiary: #{$neutral-800};
+    --surface-accent: #{$primary-950};
+    --surface-hover: #{$neutral-900};
+    --surface-active: #{$neutral-800};
+    --surface-disabled: #{$neutral-800};
+    --surface-overlay: rgba(0, 0, 0, 0.7);
+
+    --text-primary: #{$neutral-50};
+    --text-secondary: #{$neutral-400};
+    --text-tertiary: #{$neutral-500};
+    --text-disabled: #{$neutral-600};
+    --text-inverse: #{$neutral-900};
+    --text-link: #{$primary-400};
+    --text-link-hover: #{$primary-300};
+
+    --border-primary: #{$neutral-800};
+    --border-secondary: #{$neutral-700};
+    --border-focus: #{$primary-500};
+    --border-error: #{$error-500};
+    --border-success: #{$success-500};
+
+    --button-primary-bg: #{$primary-600};
+    --button-primary-bg-hover: #{$primary-500};
+    --button-primary-bg-active: #{$primary-400};
+    --button-primary-text: #{$neutral-50};
+    --button-secondary-bg: #{$neutral-800};
+    --button-secondary-bg-hover: #{$neutral-700};
+    --button-secondary-bg-active: #{$neutral-600};
+    --button-secondary-text: #{$neutral-50};
+    --button-ghost-bg-hover: #{$neutral-800};
+    --button-ghost-text: #{$neutral-300};
+    --button-disabled-bg: #{$neutral-800};
+    --button-disabled-text: #{$neutral-600};
+
+    --input-bg: #{$neutral-900};
+    --input-bg-hover: #{$neutral-800};
+    --input-bg-focus: #{$neutral-900};
+    --input-text: #{$neutral-50};
+    --input-placeholder: #{$neutral-600};
+
+    --accent-primary: #{$primary-500};
+    --accent-primary-hover: #{$primary-400};
+    --accent-secondary: #{$secondary-500};
+    --accent-secondary-hover: #{$secondary-400};
+
+    --success: #{$success-500};
+    --success-bg: #{$success-950};
+    --success-text: #{$success-300};
+
+    --warning: #{$warning-500};
+    --warning-bg: #{$warning-950};
+    --warning-text: #{$warning-300};
+
+    --error: #{$error-500};
+    --error-bg: #{$error-950};
+    --error-text: #{$error-300};
+
+    --info: #{$info-500};
+    --info-bg: #{$info-950};
+    --info-text: #{$info-300};
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  }
+}

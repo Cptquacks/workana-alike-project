@@ -1,0 +1,5 @@
+@mixin dark-theme {
+  @at-root html[data-theme='dark'] #{&} {
+    @content;
+  }
+}
