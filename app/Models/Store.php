@@ -17,7 +17,7 @@ class Store extends Model
      * @var array<string>
      */
     protected $fillable = [
-        'user_id',
+        'cover_image',
         'name',
         'description',
         'days_open',
@@ -30,6 +30,7 @@ class Store extends Model
      */
     protected $casts = [
         'user_id' => 'integer',
+        'cover_image' => 'string',
         'name' => 'string',
         'description' => 'string',
         'days_open' => 'array',
@@ -50,6 +51,13 @@ class Store extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getCoverImageUrlAttribute(): ?string
+    {
+        return $this->cover_image
+        ? asset('storage/'.$this->cover_image)
+        : null;
     }
 
     public function service(): HasMany
