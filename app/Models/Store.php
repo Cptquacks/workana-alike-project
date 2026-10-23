@@ -65,7 +65,7 @@ class Store extends Model
         return $this->hasMany(Service::class);
     }
 
-    public function comments(): HasMany
+    public function comment(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
