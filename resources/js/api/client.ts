@@ -30,7 +30,8 @@ export function isErrorResponse<T>(
 }
 
 const apiClient: AxiosInstance = axios.create({
-  // baseURL: '/api',
+  baseURL: '/api',
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',

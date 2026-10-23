@@ -6,7 +6,6 @@ import { useTheme } from '@/composables/use-theme';
 import { registerUiComponents } from '@/composables/use-ui';
 import { addCollection } from '@iconify/vue';
 import { icons } from '@iconify-json/heroicons/index.js';
-import './bootstrap.ts'
 
 addCollection(icons)
 
