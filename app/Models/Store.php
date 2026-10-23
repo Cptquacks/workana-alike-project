@@ -60,12 +60,12 @@ class Store extends Model
         : null;
     }
 
-    public function service(): HasMany
+    public function services(): HasMany
     {
         return $this->hasMany(Service::class);
     }
 
-    public function comment(): HasMany
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }

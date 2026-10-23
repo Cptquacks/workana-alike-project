@@ -51,7 +51,7 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        return response()->json($store->with(['user', 'service', 'comment']));
+        return response()->json($store->with(['user', 'services', 'comments']));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Store;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,7 +13,9 @@ class UpdateServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        $store = $this->route('store');
+
+        return $store instanceof Store && ($this->user()?->id === $store->user_id);
     }
 
     /**
@@ -23,7 +26,10 @@ class UpdateServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes|nullable|string|max:511',
+            'cost' => 'sometimes|required|decimal:0,2',
+            'currency' => 'sometimes|required|string|in:CUP,USD,ZELLE,USDT',
         ];
     }
 }
