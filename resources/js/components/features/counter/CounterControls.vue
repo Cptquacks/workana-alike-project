@@ -1,27 +1,27 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'CounterControls',
+	name: 'CounterControls',
 });
 
 interface Emits {
-  (e: 'reset'): void;
+	(e: 'reset'): void;
 }
 
 const emit = defineEmits<Emits>();
 
 const handleReset = () => {
-  emit('reset');
+	emit('reset');
 };
 </script>
 
 <template>
-  <div class="controls">
-    <UiButton
-      variant="secondary"
-      icon="solar:restart-bold"
-      @click="handleReset"
-    >
-      Reset Progress
-    </UiButton>
-  </div>
+	<div class="controls">
+		<UiButton
+			variant="secondary"
+			icon="solar:restart-bold"
+			@click="handleReset"
+		>
+			Reset Progress
+		</UiButton>
+	</div>
 </template>

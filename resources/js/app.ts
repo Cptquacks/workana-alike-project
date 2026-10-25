@@ -7,7 +7,7 @@ import { registerUiComponents } from '@/composables/use-ui';
 import { addCollection } from '@iconify/vue';
 import { icons } from '@iconify-json/heroicons/index.js';
 
-addCollection(icons)
+addCollection(icons);
 
 const app = createApp(App);
 
