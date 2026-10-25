@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Store;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class StoreSeeder extends Seeder
@@ -12,6 +13,9 @@ class StoreSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $userIds = User::pluck('id');
+        foreach ($userIds as $userId) {
+            Store::factory()->create(['user_id' => $userId]);
+        }
     }
 }

@@ -5,6 +5,8 @@ export { default as UiTip } from './tip/UiTip.vue';
 export { default as UiWrapper } from './wrapper/UiWrapper.vue';
 export { default as UiInputText } from './inputText/UiInputText.vue';
 export { default as UiTextLabel } from './textLabel/UiTextLabel.vue';
+export { default as UiStoreItem } from './storeItem/UiStoreItem.vue';
+export { default as UiOpenDisplay } from './openDisplay/UiOpenDisplay.vue';
 
 export type { ButtonVariant, ButtonSize, ButtonProps } from './button/types';
 export type { TextVariant, TextSize, TextTag, TextProps } from './text/types';
@@ -12,4 +14,6 @@ export type { BadgeVariant, BadgeSize, BadgeProps } from './badge/types';
 export type { TipVariant, TipSize, TipProps } from './tip/types';
 export type { WrapperProps, WrapperType } from './wrapper/types.ts';
 export type { InputProps, InputType } from './inputText/types.ts';
-export type {LabelProps,LabelType} from './textLabel/types.ts'
+export type { LabelProps, LabelType } from './textLabel/types.ts';
+export type { StoreProps } from './storeItem/types.ts';
+export type { OpenDisplayProps } from './openDisplay/types.ts';

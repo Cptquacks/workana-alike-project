@@ -36,20 +36,18 @@ export const useAuthStore = defineStore('auth', () => {
 			isAuthenticated.value = true;
 			router.replace('/');
 		} catch (err: unknown) {
-			return err?.response?.data?.message ?? err?.message ?? 'Error al crear una cuenta';
+			return err?.response?.data?.message ?? err?.message ?? 'Error al autenticar una cuenta';
 		}
 	}
 
 	async function refresh(): Promise<string | void> {
-		if (!isAuthenticated.value) return 'Not authenticated';
-
 		try {
 			// then we retrieve user with auth payload
-			const response = await api.post<user>('/user');
+			const response = await api.get<user>('/user');
 			user.value = response.data;
 			isAuthenticated.value = true;
 		} catch (err: unknown) {
-			return err?.response?.data?.message ?? err?.message ?? 'Error al crear una cuenta';
+			return err?.response?.data?.message ?? err?.message ?? 'Error al recuperar una cuenta';
 		}
 	}
 
@@ -58,12 +56,14 @@ export const useAuthStore = defineStore('auth', () => {
 
 		try {
 			// then we retrieve user with auth payload
-			const response = await api.post<user>('/logout');
+			await api.post<user>('/logout');
 			user.value = null;
 			isAuthenticated.value = false;
 			router.replace('/');
 		} catch (err: unknown) {
-			return err?.response?.data?.message ?? err?.message ?? 'Error al crear una cuenta';
+			return (
+				err?.response?.data?.message ?? err?.message ?? 'Error al desautenticar una cuenta'
+			);
 		}
 	}
 

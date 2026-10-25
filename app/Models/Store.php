@@ -34,8 +34,8 @@ class Store extends Model
         'name' => 'string',
         'description' => 'string',
         'days_open' => 'array',
-        'open_time' => 'datetime:H:i',
-        'closing_time' => 'datetime:H:i',
+        'open_time' => 'string',
+        'closing_time' => 'string',
         'rate' => 'decimal:2',
         'visibility' => 'decimal:2',
     ];
@@ -47,6 +47,8 @@ class Store extends Model
         'rate' => 0.0,
         'visibility' => 1.0,
     ];
+
+    protected $appends = ['cover_image_url'];
 
     public function user(): BelongsTo
     {

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cover_image')->nullable();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->json('days_open')->nullable();
+            $table->arrenum('days_open')->nullable();
             $table->time('open_time')->nullable();
             $table->time('closing_time')->nullable();
             $table->decimal('rate', 10, 2)->default(0.0);

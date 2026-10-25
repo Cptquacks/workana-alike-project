@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Store;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,12 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->company(),
+            'description' => fake()->sentence(),
+            'days_open' => ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+            'open_time' => '09:00',
+            'closing_time' => '18:00',
+            'user_id' => User::factory(),
         ];
     }
 }

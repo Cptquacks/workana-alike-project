@@ -68,7 +68,7 @@ watch(error, (value) => {
                     class="text-xl" />
                 <strong>{{ isOnLogin ? 'Iniciar sesion' : 'Crear cuenta' }}</strong>
             </ui-wrapper>
-            
+
             <div class="flex-1 flex flex-col gap-6">
                 <ui-input-text v-if="!isOnLogin" v-model="formFields.name" type="text" placeholder="Nombre de usuario"
                     icon="user"

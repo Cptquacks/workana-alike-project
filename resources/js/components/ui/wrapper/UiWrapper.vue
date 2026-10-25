@@ -17,29 +17,30 @@ const props = withDefaults(defineProps<WrapperProps>(), {
 const formClass = computed(
     () =>
         ({
-            square: 'border rounded-sm border-(--border-primary)',
-            rounded: 'border rounded-md border-(--border-primary)',
-            bar: 'flex-row min-w-full! border rounded-full border-(--border-primary)',
+            square: 'border rounded-sm',
+            rounded: 'border rounded-md',
+            bar: 'flex-row min-w-full! border rounded-full',
         })[props.form],
 );
 
 const typeClass = computed(
     () =>
         ({
-            primary: 'bg-(--surface-secondary)',
-            secondary: 'bg-(--surface-primary)',
-            tertiary: 'bg-(--surface-tertiary)',
+            primary: 'bg-(--surface-secondary) border-(--border-primary)',
+            secondary: 'bg-(--surface-primary) border-(--border-secondary)',
+            tertiary: 'bg-(--surface-tertiary) border-white/5',
         })[props.type],
 );
 
 const maxwidthClass = computed(
     () =>
         ({
+            xs: 'max-w-[256px]',
             sm: 'max-w-[384px]',
             md: 'max-w-[448px]',
             lg: 'max-w-[512px]',
             xl: 'max-w-[576px]',
-            fit: 'w-fit',
+            fit: 'w-fit!',
             full: 'max-w-full',
         })[props.maxWidth],
 );
@@ -47,6 +48,7 @@ const maxwidthClass = computed(
 const maxHeightClass = computed(
     () =>
         ({
+            xs: 'max-h-[256px]',
             sm: 'max-h-[384px]',
             md: 'max-h-[448px]',
             lg: 'max-h-[512px]',
@@ -60,6 +62,7 @@ const paddingClass = computed(
     () =>
         ({
             none: '',
+            xs: 'p-1',
             sm: 'p-2',
             md: 'p-4',
             lg: 'p-8',

@@ -43,7 +43,7 @@ onMounted(() => emits('error:invalidField', model.value.length === 0))
 </script>
 
 <template>
-    <ui-wrapper padding="none" type="secondary" max-height="fit"
+    <ui-wrapper padding="none" type="secondary" max-height="fit" max-width="full"
         :class="['relative px-1 py-0.75 overflow-visible items-center', fieldStyling]" flex-row>
         <icon v-if="props.icon" :icon="`heroicons:${props.icon}`" class="inline-block box-content px-1!" />
 
