@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SideBar from '@/components/shared/SideBar.vue';
 import { useAuthStore } from '@/stores';
 import { onMounted } from 'vue';
 
@@ -7,8 +8,9 @@ onMounted(async () => console.log(await auth.refresh()))
 </script>
 <template>
 	<div class="layout-container">
-		<main class="main-content">
-			<div class="page-transition-wrapper flex flex-col">
+		<main class="main-content flex flex-row min-h-screen">
+			<side-bar />
+			<div class="flex-1 page-transition-wrapper flex flex-col">
 				<slot />
 			</div>
 		</main>

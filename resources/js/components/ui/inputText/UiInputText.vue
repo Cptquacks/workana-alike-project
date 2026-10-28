@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, useId, watch } from 'vue';
 import type { InputProps } from './types';
-import { UiWrapper } from '..';
+import UiWrapper from '../wrapper/UiWrapper.vue';
 import { Icon } from '@iconify/vue';
 
 const props = withDefaults(defineProps<InputProps>(), {
@@ -45,20 +45,24 @@ onMounted(() => emits('error:invalidField', model.value.length === 0))
 <template>
     <ui-wrapper padding="none" type="secondary" max-height="fit" max-width="full"
         :class="['relative px-1 py-0.75 overflow-visible items-center', fieldStyling]" flex-row>
-        <icon v-if="props.icon" :icon="`heroicons:${props.icon}`" class="inline-block box-content px-1!" />
+        <icon v-if="props.icon && props.type !== 'text-box'" :icon="`heroicons:${props.icon}`"
+            class="inline-block box-content px-1!" />
 
-        <input v-if="props.type !== 'password'" :id="target" v-model="model" class="peer font-extralight w-full"
-            :type="props.type" placeholder=" ">
+        <input v-if="!['password', 'text-box'].includes(props.type)" :id="target" v-model="model"
+            class="peer font-extralight w-full" :type="props.type" placeholder=" ">
 
         <input v-if="props.type === 'password'" :id="target" v-model="model" class="peer font-extralight w-full"
             :type="showPassword ? 'text' : 'password'" placeholder=" ">
+
+        <textarea v-if="props.type === 'text-box'" :id="target" placeholder=" "
+            class="peer font-extralight resize-none w-full" />
 
         <ui-button v-if="props.type === 'password'" size="xs" variant="password" :togled="showPassword"
             @click="showPassword = !showPassword">
             <icon :icon="showPassword ? 'heroicons:eye-slash' : 'heroicons:eye'" />
         </ui-button>
 
-        <label :for="target" :class="`
+        <label v-if="props.type !== 'text-box'" :for="target" :class="`
             transition absolute 
             pointer-events-none
             ${props.icon ? 'left-7' : 'left-3'} top-1/2 
@@ -66,6 +70,23 @@ onMounted(() => emits('error:invalidField', model.value.length === 0))
             text-base text-(--text-disabled)
 
             peer-not-placeholder-shown:-translate-y-6
+            ${props.icon ?
+                'peer-not-placeholder-shown:-translate-x-5' :
+                'peer-not-placeholder-shown:-translate-x-1'
+            }
+            peer-not-placeholder-shown:text-(--text-primary)
+            peer-not-placeholder-shown:text-xs
+            `">
+            {{ props.placeholder }}
+        </label>
+
+        <label v-if="props.type === 'text-box'" :for="target" :class="`
+            transition absolute 
+            pointer-events-none
+            ${props.icon ? 'left-7' : 'left-3'} top-1
+            text-base text-(--text-disabled)
+
+            peer-not-placeholder-shown:-translate-y-3
             ${props.icon ?
                 'peer-not-placeholder-shown:-translate-x-5' :
                 'peer-not-placeholder-shown:-translate-x-1'

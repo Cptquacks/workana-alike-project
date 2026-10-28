@@ -14,7 +14,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 	loading: false,
 	disabled: false,
 	block: false,
-	togled: false
+	togled: false,
+	iconRight: false,
 });
 
 const emit = defineEmits(['click']);
@@ -30,6 +31,7 @@ const classes = computed(() => [
 	`ui-button--${props.variant}${props.togled ? '-togled' : ''}`,
 	`ui-button--${props.size}`,
 	`rounded-${props.radius}`,
+	props.iconRight ? 'flex! flex-row-reverse!' : '',
 	{
 		'ui-button--loading': props.loading,
 		'ui-button--block': props.block,
@@ -113,7 +115,7 @@ const onClick = (event: MouseEvent) => {
 		font-size: 0.95rem;
 
 		.ui-button__icon {
-			font-size: 1.25rem;
+			font-size: 1.4rem;
 		}
 	}
 
@@ -123,7 +125,7 @@ const onClick = (event: MouseEvent) => {
 		font-size: 1.125rem;
 
 		.ui-button__icon {
-			font-size: 1.5rem;
+			font-size: 1.75rem;
 		}
 	}
 
@@ -200,6 +202,21 @@ const onClick = (event: MouseEvent) => {
 
 		&-togled:hover:not(:disabled) {
 			background-color: var(--button-primary-bg-hover);
+		}
+	}
+
+	&--sidebar {
+		background-color: var(--surface-primary);
+		width: 100%;
+		justify-content: start !important;
+
+		&:hover:not(:disabled) {
+			background-color: var(--button-primary-bg-hover);
+		}
+
+
+		&:active:not(:disabled) {
+			background-color: var(--button-primary-bg-active);
 		}
 	}
 }

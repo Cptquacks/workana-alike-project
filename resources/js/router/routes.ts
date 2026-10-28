@@ -1,3 +1,4 @@
+import { authGuard } from '@/guard/auth';
 import type { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
@@ -6,15 +7,7 @@ const routes: RouteRecordRaw[] = [
 		name: 'home',
 		component: () => import('@/views/StoreNavigationView.vue'),
 		meta: {
-			title: 'Welcome',
-		},
-	},
-	{
-		path: '/counter',
-		name: 'counter',
-		component: () => import('@/views/CounterView.vue'),
-		meta: {
-			title: 'Interactive Counter',
+			title: 'Pagina principal',
 		},
 	},
 	{
@@ -25,6 +18,17 @@ const routes: RouteRecordRaw[] = [
 			title: 'Authenticacion',
 			layout: 'AuthLayout',
 		},
+	},
+	{
+		path: '/new-store',
+		name: 'new store',
+		component: () => import('@/views/NewStoreView.vue'),
+		meta: {
+			title: 'Nuevo servicio',
+			layout: 'EmptyLayout',
+			requiresAuth: true,
+		},
+		beforeEnter: to => authGuard(to),
 	},
 ];
 

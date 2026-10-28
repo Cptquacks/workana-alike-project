@@ -1,7 +1,10 @@
+import type { store } from './stores';
+
 export interface user {
 	id: number;
 	name: string;
 	email: string;
+	stores?: store[];
 }
 
 export interface storePayload {

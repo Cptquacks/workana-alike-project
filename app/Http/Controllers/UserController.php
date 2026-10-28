@@ -84,7 +84,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if ($id === Auth::id()) {
-            return response()->json($user);
+            return response()->json($user->with(['stores']));
         }
 
         return response()->json($user->only(['id', 'name']));

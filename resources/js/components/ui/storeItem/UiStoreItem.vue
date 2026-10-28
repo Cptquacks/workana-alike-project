@@ -2,8 +2,10 @@
 import { computed, ref } from 'vue';
 import type { StoreProps } from './types';
 import { Icon } from '@iconify/vue';
-import { UiButton, UiOpenDisplay, UiWrapper } from '../index.ts';
 import { isStoreOpen } from '@/utils/time.ts';
+import UiWrapper from '../wrapper/UiWrapper.vue';
+import UiButton from '../button/UiButton.vue';
+import UiOpenDisplay from '../openDisplay/UiOpenDisplay.vue';
 
 
 const props = defineProps<StoreProps>()

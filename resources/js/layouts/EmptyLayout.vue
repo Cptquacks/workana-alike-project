@@ -1,9 +1,16 @@
+<script setup lang="ts">
+import { useAuthStore } from '@/stores';
+import { onMounted } from 'vue';
+
+const auth = useAuthStore()
+onMounted(async () => console.log(await auth.refresh()))
+</script>
 <template>
 	<div class="transition min-h-screen bg-(--surface-primary) color-(--text-primary)">
-		<mai class="max-w-full flex-1 overflow-y-auto overflow-x-hidden">
-			<div class="page-transition-wraper">
+		<main class="max-w-full min-h-screen flex-1 overflow-y-auto overflow-x-hidden">
+			<div class="page-transition-wraper h-screen">
 				<slot />
 			</div>
-		</mai>
+		</main>
 	</div>
 </template>

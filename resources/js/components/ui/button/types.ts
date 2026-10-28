@@ -1,5 +1,5 @@
 export type ButtonVariant =
-	'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'success' | 'password';
+	'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'success' | 'password' | 'sidebar';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonRadius = 'xs' | 'sm' | 'md' | 'lg' | 'full';
 
@@ -12,6 +12,7 @@ export interface ButtonProps {
 	loading?: boolean;
 	disabled?: boolean;
 	block?: boolean;
+	iconRight?: boolean;
 	to?: string | object;
 	href?: string;
 }
